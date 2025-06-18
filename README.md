@@ -9,7 +9,7 @@ My personal collection of boilerplate repos / starter kits.
 
 ## TODOS:
 
-### node-express-ts repo
+### node-express-ts project
 
 - add basic routing (nested)
 - add the CORS, body-parser, and Multer Express middlewares
