@@ -1,12 +1,25 @@
 import express from 'express';
+import { appRouter } from '@/components/appRouter';
+import { errorMiddleware } from '@/middlewares/errorMiddleware';
+import { loggerMiddleware } from '@/middlewares/logger';
+import { connectMongoose } from '@/lib/mongoose';
 
-const app = express();
-const port = 3000;
+const createApp = () => {
+  const app = express();
+  const port = process.env.PORT;
 
-app.get('/', (req, res) => {
-  res.send('Hello Hello!');
-});
+  // parse jsons
+  app.use(express.json());
+  // parse forms
+  app.use(express.urlencoded({ extended: true }));
 
-app.listen(port, () => {
-  return console.log(`Express is listening at http://localhost:${port}`);
-});
+  app.use(loggerMiddleware);
+  app.use(appRouter);
+  app.use(errorMiddleware);
+
+  app.listen(port, () => {
+    return console.log(`Express is listening at http://localhost:${port}`);
+  });
+};
+
+connectMongoose(createApp);
