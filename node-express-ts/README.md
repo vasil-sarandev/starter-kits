@@ -11,6 +11,15 @@ This is my personal starter kit for Node-Express Apps in 2025.
 - Vitest
 - JsonWebToken
 
+## Project Setup
+
+- Layered Architecture (controller, service, repository, model, ...etc)
+- JWT-based authentication with an authentication middleware
+- Nested Routers
+- Component-centric folder structure
+- Middlewares (logger, error, auth)
+- .env file secrets
+
 ## Getting started
 
 ### Prerequisites
